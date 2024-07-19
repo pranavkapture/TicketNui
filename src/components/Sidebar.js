@@ -55,19 +55,19 @@ const Sidebar = ({ setStatusFilter }) => {
         </List>
         <Divider className="my-4 bg-gray-500" />
         <List component="nav">
-          <ListItem button onClick={() => setStatusFilter('Assigned to me')} className="hover:bg-gray-500 rounded-lg">
+          <ListItem button onClick={() => setStatusFilter('All')} className="hover:bg-gray-500 rounded-lg">
             <ListItemIcon>
               <DraftsIcon className="text-yellow-100" />
             </ListItemIcon>
             <ListItemText primary="Assigned to me" className="text-yellow-100" />
           </ListItem>
-          <ListItem button onClick={() => setStatusFilter('Created by me')} className="hover:bg-gray-500 rounded-lg">
+          <ListItem button onClick={() => setStatusFilter('open')} className="hover:bg-gray-500 rounded-lg">
             <ListItemIcon>
               <DraftsIcon className="text-yellow-100" />
             </ListItemIcon>
             <ListItemText primary="Created by me" className="text-yellow-100" />
           </ListItem>
-          <ListItem button onClick={() => setStatusFilter('Completed by me')} className="hover:bg-gray-500 rounded-lg">
+          <ListItem button onClick={() => setStatusFilter('close')} className="hover:bg-gray-500 rounded-lg">
             <ListItemIcon>
               <DraftsIcon className="text-yellow-100" />
             </ListItemIcon>

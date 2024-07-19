@@ -10,7 +10,7 @@ import { deleteTicket } from '../actions/ticketActions';
 
 const Dashboard = () => {
   const dispatch = useDispatch();
-  const tickets = useSelector(state => state.ticket.tickets);
+  const tickets = useSelector(({ ticket }) => ticket.tickets);
 
   const [filter, setFilter] = useState('All');
   const [showForm, setShowForm] = useState(false);
@@ -108,15 +108,16 @@ const Dashboard = () => {
         </Dialog>
 
         {/* Dialog for Ticket Detail */}
-        <Dialog open={showDetail} onClose={handleCloseDetail} maxWidth="md" fullWidth>
-          {selectedTicket && (
-            <TicketDetail
-              ticket={selectedTicket}
-              onEdit={handleEditTicket}
-              onClose={handleCloseDetail}
-            />
-          )}
-        </Dialog>
+          <Dialog open={showDetail} onClose={handleCloseDetail} maxWidth="md" fullWidth>
+            {selectedTicket && (
+              <TicketDetail
+                ticket={selectedTicket}
+                onEdit={handleEditTicket}
+                onClose={handleCloseDetail}
+              />
+            )}
+          </Dialog>
+
       </div>
     </div>
   );

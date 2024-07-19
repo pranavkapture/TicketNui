@@ -1,12 +1,12 @@
 import React, { useContext } from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
-import { useNavigate } from 'react-router-dom';
+import { Navigate, useNavigate } from 'react-router-dom';
 import { UserContext } from '../context/userContext';
 import { Button, TextField } from '@mui/material';
 import { AccountCircle, Email, Lock } from '@mui/icons-material';
 
 const LoginForm = () => {
-  const { setUsername } = useContext(UserContext);
+  const { username, setUsername } = useContext(UserContext);
   const navigate = useNavigate();
 
   const initialValues = {
@@ -14,6 +14,10 @@ const LoginForm = () => {
     email: '',
     password: '',
   };
+
+  if(username == null){
+    return <Navigate to="/"/>
+  }
 
   const onSubmit = (values, { setSubmitting }) => {
     // Save username to Redux or context
